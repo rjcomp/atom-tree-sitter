@@ -1,0 +1,11 @@
+=====================
+Check Type
+=====================
+
+<check_type: "Windows" version:"2">
+</check_type>
+
+---
+
+(audit
+  (check_type))
