@@ -1,5 +1,5 @@
 {
-  "name": "tree-sitter-tenableaudits",
+  "name": "sitter-tenableaudits",
   "version": "0.0.9",
   "description": "Tree sitter grammar for Tenable Audits",
   "main": "index.js",
