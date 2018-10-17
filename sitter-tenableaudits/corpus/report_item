@@ -1,0 +1,13 @@
+=====================
+Report Item
+=====================
+
+<report type:"PASSED">
+  description : "CIS Windows 7 Workstation Level 1 v3.1.0"
+</report>
+
+---
+
+(audit
+  (rept_item
+    (check_string_element)))

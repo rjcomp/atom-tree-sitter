@@ -1,0 +1,11 @@
+=====================
+Group Policy
+=====================
+
+<group_policy:"CIS Windows 7 Benchmark v3.1.0">
+</group_policy>
+
+---
+
+(audit
+  (group_policy))

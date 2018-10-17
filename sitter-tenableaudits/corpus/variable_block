@@ -1,0 +1,11 @@
+==========================
+Variable Block
+==========================
+
+#<variables>
+#</variables>
+
+---
+
+(audit
+  (variable_block))

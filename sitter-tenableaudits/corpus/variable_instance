@@ -1,0 +1,19 @@
+==========================
+Variable Instance
+==========================
+
+#<variable>
+#<name>AllTSLogOn</name>
+#<default>'Administrators' && 'Remote Desktop Users'</default>
+#<description>Allow log on through Remote Desktop</description>
+#<info>Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment\Allow log on through Remote Desktop Services</info>
+#</variable>
+
+---
+
+(audit
+  (variable_instance
+    (variable_name)
+    (variable_default)
+    (variable_description)
+    (variable_info)))
