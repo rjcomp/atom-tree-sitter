@@ -1,5 +1,6 @@
-name: 'Audit'
-scopeName: 'tenableaudits'
+id: 'audit'
+name: 'Tenable Audits'
+scopeName: 'source.tenableaudits'
 type: 'tree-sitter'
 parser: 'tree-sitter-tenableaudits'
 
