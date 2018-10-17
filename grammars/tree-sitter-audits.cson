@@ -2,7 +2,7 @@ id: 'audit'
 name: 'Tenable Audits'
 type: 'tree-sitter'
 scopeName: 'source.tenableaudits'
-parser: 'tree-sitter-tenableaudits'
+parser: 'sitter-tenableaudits'
 
 fileTypes: ['audit']
 
