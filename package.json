@@ -1,19 +1,25 @@
 {
-  "name": "language-tenableaudits",
-  "main": "./lib/language-tenableaudits",
-  "version": "0.0.0",
-  "description": "Tenable Tree-sitter grammer package",
-  "keywords": [
-  ],
-  "activationCommands": {
-    "atom-workspace": "language-tenableaudits:toggle"
+  "name": "sitter-tenableaudits",
+  "version": "0.0.9",
+  "description": "Tree sitter grammar for Tenable Audits",
+  "main": "index.js",
+  "scripts": {
+    "build": "tree-sitter generate && node-gyp build"
   },
-  "repository": "https://github.com/atom/language-tenableaudits",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rjcomp/atom-tree-sitter.git"
+  },
+  "author": "Tenable",
   "license": "MIT",
-  "engines": {
-    "atom": ">=1.0.0 <2.0.0"
+  "bugs": {
+    "url": "https://github.com/rjcomp/atom-tree-sitter/issues"
   },
+  "homepage": "https://github.com/rjcomp/atom-tree-sitter#readme",
   "dependencies": {
-    "sitter-tenableaudits": "sitter-tenableaudits"
+    "nan": "^2.11.0"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.13.5"
   }
 }
