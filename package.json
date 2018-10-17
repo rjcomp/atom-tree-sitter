@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-tenableaudits",
-  "version": "0.0.11",
+  "version": "0.0.9",
   "description": "Tree sitter grammar for Tenable Audits",
   "main": "index.js",
   "scripts": {
@@ -17,9 +17,7 @@
   },
   "homepage": "https://github.com/rjcomp/atom-tree-sitter#readme",
   "dependencies": {
-    "nan": "^2.11.0",
-    "node-gyp": "^3.8.0",
-    "tree-sitter": "^0.13.15"
+    "nan": "^2.11.0"
   },
   "devDependencies": {
     "tree-sitter-cli": "^0.13.5"
