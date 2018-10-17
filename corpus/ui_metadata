@@ -1,0 +1,42 @@
+==========================
+UI Metadata
+==========================
+
+#<ui_metadata>
+#<display_name>CIS Windows 7 Workstation Level 1 v3.1.0</display_name>
+#<spec>
+#  <type>CIS</type>
+#  <name>Windows 7 Level 1</name>
+#  <version>3.1.0</version>
+#  <link>https://workbench.cisecurity.org/files/1929</link>
+#</spec>
+#<labels>windows,cis,microsoft,win_7</labels>
+#<benchmark_refs>LEVEL,CSCv6</benchmark_refs>
+#<variables>
+#<variable>
+#<name>AllTSLogOn</name>
+#<default>'Administrators' && 'Remote Desktop Users'</default>
+#<description>Allow log on through Remote Desktop</description>
+#<info>Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment\Allow log on through Remote Desktop Services</info>
+#</variable>
+#</variables>
+#</ui_metadata>
+
+---
+
+(audit
+  (ui_metadata
+    (meta_displayname)
+    (spec_block
+      (spec_type)
+      (spec_name)
+      (spec_version)
+      (spec_link))
+    (meta_labels)
+    (meta_refs)
+    (variable_block
+      (variable_instance
+        (variable_name)
+        (variable_default)
+        (variable_description)
+        (variable_info)))))

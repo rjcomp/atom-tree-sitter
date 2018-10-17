@@ -1,0 +1,17 @@
+================
+Item Item
+================
+
+<item>
+ description: "Description"
+ info: "Info"
+ solution: "Solution"
+</item>
+
+---
+
+(audit
+  (builtin_item
+    (check_string_element)
+    (check_string_element)
+    (check_string_element)))
