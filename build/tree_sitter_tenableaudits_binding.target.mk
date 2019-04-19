@@ -36,13 +36,10 @@ CFLAGS_CC_Debug := \
 	-std=gnu++0x
 
 INCS_Debug := \
-	-I/home/rjaynes/.node-gyp/8.9.3/include/node \
-	-I/home/rjaynes/.node-gyp/8.9.3/src \
-	-I/home/rjaynes/.node-gyp/8.9.3/deps/openssl/config \
-	-I/home/rjaynes/.node-gyp/8.9.3/deps/openssl/openssl/include \
-	-I/home/rjaynes/.node-gyp/8.9.3/deps/uv/include \
-	-I/home/rjaynes/.node-gyp/8.9.3/deps/zlib \
-	-I/home/rjaynes/.node-gyp/8.9.3/deps/v8/include \
+	-I/usr/include/nodejs/include/node \
+	-I/usr/include/nodejs/src \
+	-I/usr/include/nodejs/deps/uv/include \
+	-I/usr/include/nodejs/deps/v8/include \
 	-I$(srcdir)/node_modules/nan \
 	-I$(srcdir)/src
 
@@ -77,13 +74,10 @@ CFLAGS_CC_Release := \
 	-std=gnu++0x
 
 INCS_Release := \
-	-I/home/rjaynes/.node-gyp/8.9.3/include/node \
-	-I/home/rjaynes/.node-gyp/8.9.3/src \
-	-I/home/rjaynes/.node-gyp/8.9.3/deps/openssl/config \
-	-I/home/rjaynes/.node-gyp/8.9.3/deps/openssl/openssl/include \
-	-I/home/rjaynes/.node-gyp/8.9.3/deps/uv/include \
-	-I/home/rjaynes/.node-gyp/8.9.3/deps/zlib \
-	-I/home/rjaynes/.node-gyp/8.9.3/deps/v8/include \
+	-I/usr/include/nodejs/include/node \
+	-I/usr/include/nodejs/src \
+	-I/usr/include/nodejs/deps/uv/include \
+	-I/usr/include/nodejs/deps/v8/include \
 	-I$(srcdir)/node_modules/nan \
 	-I$(srcdir)/src
 

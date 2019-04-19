@@ -17,10 +17,10 @@
   },
   "homepage": "https://github.com/rjcomp/atom-tree-sitter#readme",
   "dependencies": {
-    "nan": "^2.11.0",
+    "nan": "^2.13.2",
     "node-gyp": "^3.8.0"
   },
   "devDependencies": {
-    "tree-sitter-cli": "^0.13.5"
+    "tree-sitter-cli": "^0.13.16"
   }
 }

@@ -1,13 +1,11 @@
 module.exports = grammar({
-  name: 'tenableaudits',
+  name: 'tenableAudits',
 
   rules: {
     audit: $ => seq(
       optional($.comments),
       repeat($._statement)
     ),
-
-    comments: $ => /(#[^<]+$|#$)/,
 
     _statement: $ => choice(
       $.ui_metadata,
@@ -21,15 +19,11 @@ module.exports = grammar({
       $.group_policy,
       $.custom_item,
       $.builtin_item,
-      $.rept_item,
-      $.check_string_element,
+      $.report_item,
+      $.check_string_element_1,
+      $.check_string_element_2,
       $.check_nonstring_element,
       $.check_empty_element,
-      //$.check_range_element,
-      //$.check_integer_element,
-      //$.check_url_element,
-      //$.check_type_element,
-      //$.check_parameter_element,
       $.if_block
     ),
 
@@ -77,11 +71,12 @@ module.exports = grammar({
     check_type: $ => seq(
       /<check_type:[^>]+>/,
       repeat(choice(
+        $.comments,
         $.group_policy,
         $.if_block,
         $.custom_item,
         $.builtin_item,
-        $.rept_item
+        $.report_item
       )),
       '</check_type>'
     ),
@@ -89,11 +84,12 @@ module.exports = grammar({
     group_policy: $ => seq(
       /<group_policy:[^>]+>/,
       repeat(choice(
+        $.comments,
         $.group_policy,
         $.if_block,
         $.custom_item,
         $.builtin_item,
-        $.rept_item
+        $.report_item
       )),
       '</group_policy>'
     ),
@@ -101,14 +97,11 @@ module.exports = grammar({
     custom_item: $ => seq(
       '<custom_item>',
       repeat(choice(
-        $.check_string_element,
+        $.comments,
+        $.check_string_element_1,
+        $.check_string_element_2,
         $.check_nonstring_element,
         $.check_empty_element
-        //$.check_range_element,
-        //$.check_integer_element,
-        //$.check_url_element,
-        //$.check_type_element,
-        //$.check_parameter_element
       )),
       '</custom_item>'
     ),
@@ -116,26 +109,25 @@ module.exports = grammar({
     builtin_item: $ => seq(
       '<item>',
       repeat(choice(
-        $.check_string_element,
+        $.comments,
+        $.check_string_element_1,
+        $.check_string_element_2,
         $.check_nonstring_element,
         $.check_empty_element
-        //$.check_range_element,
-        //$.check_integer_element,
-        //$.check_url_element,
-        //$.check_type_element,
-        //$.check_parameter_element
       )),
       '</item>'
     ),
 
-    rept_item: $ => seq(
+    report_item: $ => seq(
       /<report type:"(PASSED|FAILED|WARNING)">/,
-      repeat(
-        $.check_string_element,
+      repeat(choice(
+        $.comments,
+        $.check_string_element_1,
+        $.check_string_element_2,
         $.check_nonstring_element,
         $.check_empty_element
         //$.check_url_element
-      ),
+      )),
       '</report>'
     ),
 
@@ -152,6 +144,7 @@ module.exports = grammar({
     condition_block: $ => seq(
       /<condition type:"(AND|OR)">/,
       repeat(choice(
+        $.comments,
         $.custom_item
       )),
       '</condition>'
@@ -160,9 +153,10 @@ module.exports = grammar({
     then_block: $ => seq(
       '<then>',
       repeat(choice(
+        $.comments,
         $.custom_item,
         $.builtin_item,
-        $.rept_item
+        $.report_item
       )),
       '</then>'
     ),
@@ -170,12 +164,16 @@ module.exports = grammar({
     else_block: $ => seq(
       '<else>',
       repeat(choice(
+        $.comments,
         $.custom_item,
         $.builtin_item,
-        $.rept_item
+        $.report_item
       )),
       '</else>'
     ),
+
+    // Global Elements
+    comments: $ => /(#[^<]+|#+)/,
 
     // Metadata Elements
     meta_displayname: $ => /#<display_name>.+<\/display_name>/,
@@ -195,17 +193,11 @@ module.exports = grammar({
 
     // Check Elements - Non Functional
 
-    //check_range_element: $ => /.+[ ]*:[ ]*\[[0-9A-Z]+\.\.[0-9A-Z]+\]/,
-    //check_integer_element: $ => /.+[ ]*:[ ]*[0-9]+/,
-    //check_url_element: $ => /see_also[ ]*:[ ]*["']http.+['"]\n/,
-    //check_type_element: $ => /type[ ]*:[ ]*[A-Z_]+/,
-    //check_parameter_element: $ => /[^t][^y][^p][^e][ ]*:[ ]*[A-Z_]+/,
-    //check_reference_element: $ => /reference[ ]*:[ ]*".+"\n/,
-    check_string_element: $ => /[ ]*[A-Za-z0-9_-]+[ ]*:[ ]*"[^"]+"/gm,
+    check_string_element_1: $ => /[ ]*[A-Za-z0-9_-]+[ ]*:[ ]*["]([^"]+|[\\]["]+).+["]/gm,
+    check_string_element_2: $ => /[ ]*[A-Za-z0-9_-]+[ ]*:[ ]*[']([^']+|[\\][']+).+[']/gm,
     check_nonstring_element: $ => /[ ]*[A-Za-z0-9_-]+[ ]*:[ ]*[A-Za-z_\[\]0-9.]+/,
     check_empty_element: $ => /[ ]*[A-Za-z0-9_-]+[ ]*:[ ]*""/
 
 
  }
 });
-
