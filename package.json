@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/rjcomp/atom-tree-sitter#readme",
   "dependencies": {
+    "diff": "^4.0.2",
     "fstream": "^1.0.12",
     "minimist": "^1.2.5",
     "nan": "^2.14.0",
